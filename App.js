@@ -1,14 +1,14 @@
 // You can import Ionicons from @expo/vector-icons if you use Expo or
 // react-native-vector-icons/Ionicons otherwise.
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 
 function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Home!</Text>
     </View>
   );
@@ -16,7 +16,7 @@ function HomeScreen() {
 
 function PrivilegeScreen(){
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Privilege!</Text>
     </View>
   );
@@ -24,7 +24,7 @@ function PrivilegeScreen(){
 
 function NontificationScreen(){
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Nontification!</Text>
     </View>
   );
@@ -32,7 +32,7 @@ function NontificationScreen(){
 
 function SettingsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={styles.container}>
       <Text>Settings!</Text>
     </View>
   );
@@ -60,8 +60,6 @@ export default function App() {
             else if (route.name === 'Settings') {
               iconName = focused ? 'ios-list' : 'ios-list';
             }
-
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
         })}
@@ -78,3 +76,11 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+})
